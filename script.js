@@ -4,20 +4,26 @@
 // first, to insure code isn't run until the browser finishes rendering the HTML
 // elements
 $(document).ready(function () {
+
   // event listener for the save buttons
   $(".saveBtn").on("click", function () {
+
     // takes the values/text of the text area and the corresponding id the text
     // was written in
     var text = $(this).siblings(".description").val();
     var time = $(this).parent().attr("id");
+
     // sets the time and text variables as key value pairs in local storage
     localStorage.setItem(time, text);
   });
+
   // function to find the current hour and set the background color depending on
   // past, present, or future
   function hourTracker() {
+
     // gets value of current hour using dayjs
     var currentHour = dayjs().$H;
+
     // creates a loop that goes through each div containing the class .time-block
     // and adds or removes a class depending on the current time. The class is
     // linked to the bootstrap API and applies a color respectively.
@@ -40,6 +46,7 @@ $(document).ready(function () {
       }
     });
   }
+  
   // calls the hourtracker function
   hourTracker();
   
